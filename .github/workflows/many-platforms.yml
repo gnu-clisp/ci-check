@@ -1,6 +1,6 @@
 # A GitHub Actions workflow that builds a package on many platforms.
 
-# Copyright (C) 2024 Free Software Foundation, Inc.
+# Copyright (C) 2024-2025 Free Software Foundation, Inc.
 #
 # This file is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published
@@ -270,7 +270,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-12, macos-13, macos-14]
+        os: [macos-13, macos-14, macos-15]
     runs-on: ${{ matrix.os }}
     steps:
       # This is needed because we run a script stored in this repository.
@@ -286,7 +286,7 @@ jobs:
       - run: pwd
       # Install Homebrew packages.
       # List of packages: https://formulae.brew.sh/
-      - run: ${{ matrix.os == 'macos-14' && 'brew install libiconv' || ':' }}
+      - run: ${{ (matrix.os == 'macos-14' || matrix.os == 'macos-15') && 'brew install libiconv' || ':' }}
       - run: |
           pwd
           export CPPFLAGS="-I$HOME/include -I${HOMEBREW_PREFIX-/usr/local}/opt/libiconv/include -Wall"
@@ -483,7 +483,7 @@ jobs:
           #prepare: |
           #  : "Install Solaris packages"
           #  : "List of packages: http://pkg.oracle.com/solaris/release/en/index.shtml"
-          #  pkg install ...
+          #  pkg install ...; ret=$?; test $ret = 0 || test $ret = 4
           run: |
             set -x
             uname -a
@@ -763,7 +763,7 @@ jobs:
           VCINSTALLDIR="${VSINSTALLDIR}"'\VC'
           PATH=`cygpath -u "${VCINSTALLDIR}"`/bin${pathelementsuffix}:"$PATH"
           INCLUDE="${VCINSTALLDIR}"'\include;'"${INCLUDE}"
-          LIB="${VCINSTALLDIR}"'\lib${libelementsuffix};'"${LIB}"
+          LIB="${VCINSTALLDIR}"'\lib'"${libelementsuffix};${LIB}"
           export INCLUDE LIB
           : "Possible values are _WIN32_WINNT_WINXP, _WIN32_WINNT_VISTA, _WIN32_WINNT_WIN7"
           win32_target=_WIN32_WINNT_WINXP
@@ -814,7 +814,7 @@ jobs:
       - run: |
           pwd
           export CPPFLAGS="-Wall"
-          export CC="clang -fsanitize=address,undefined,signed-integer-overflow,shift,integer-divide-by-zero"
+          export CC="clang -fsanitize=address,undefined,signed-integer-overflow,shift,integer-divide-by-zero -fno-sanitize-recover=undefined"
           export CFLAGS="-O0 -fno-omit-frame-pointer -ggdb"
           export ASAN_OPTIONS="detect_leaks=0 abort_on_error=1 allocator_may_return_null=1"
           ./build-on.sh '${{ env.package }}' '' 'make' "$HOME" '${{ env.libsigsegv }} ${{ env.libffcall }}'
@@ -849,17 +849,18 @@ jobs:
           name: tarball
       - uses: addnab/docker-run-action@v3
         with:
-          # A Docker container with the newest clang release, based on Debian 11.
-          image: tuxmake/clang-18:latest
+          # A Docker container with the newest clang release, based on Debian 12.
+          image: tuxmake/clang-20:latest
           options: -v ${{ github.workspace }}:/work
           run: |
             uname -a
+            cat /etc/os-release
             id
             env | LC_ALL=C sort
             pwd
             : "Install Debian packages."
             : "List of packages: https://packages.debian.org/"
-            : "apt update; apt install ..."
+            : "apt update; apt -y install ..."
             cd /work
             ls -l
             export CPPFLAGS="-Wall"
