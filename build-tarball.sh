@@ -23,6 +23,8 @@ package="$1"
 
 set -e
 
+. ./init-git.sh
+
 # Fetch sources (uses package 'git').
 git clone --depth 1 https://gitlab.com/gnu-clisp/"$package".git
 cd "$package"
