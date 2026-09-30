@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (C) 2024 Free Software Foundation, Inc.
+# Copyright (C) 2024-2026 Free Software Foundation, Inc.
 #
 # This file is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published
@@ -35,4 +35,4 @@ mv archives/*/*.tar.bz2 .
 
 # Fetch dependency sources (uses package 'wget').
 wget https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.15.tar.gz
-wget https://alpha.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz
+wget https://ftp.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz
