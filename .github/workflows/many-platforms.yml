@@ -41,8 +41,8 @@ on:
 # Variables.
 env:
   package: clisp
-  libsigsegv: libsigsegv-2.14
-  libffcall: libffcall-2.4.90
+  libsigsegv: libsigsegv-2.15
+  libffcall: libffcall-2.5
   # URL prefix suitable for downloading individual files through 'wget'
   #gnulib_url_prefix: https://gitweb.git.savannah.gnu.org/gitweb/?p=gnulib.git;a=blob_plain;hb=HEAD;f=
   gnulib_url_prefix: https://raw.githubusercontent.com/coreutils/gnulib/refs/heads/master/

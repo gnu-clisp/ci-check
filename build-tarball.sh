@@ -34,5 +34,5 @@ cd ..
 mv archives/*/*.tar.bz2 .
 
 # Fetch dependency sources (uses package 'wget').
-wget https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.14.tar.gz
-wget https://alpha.gnu.org/gnu/libffcall/libffcall-2.4.90.tar.gz
+wget https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.15.tar.gz
+wget https://alpha.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz
