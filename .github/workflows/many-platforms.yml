@@ -125,7 +125,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-linux-gnu-centos:
@@ -171,7 +171,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-linux-gnu-alma:
@@ -219,7 +219,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-linux-alpine:
@@ -263,7 +263,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-macos:
@@ -309,7 +309,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-freebsd:
@@ -358,7 +358,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-netbsd:
@@ -408,7 +408,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-openbsd:
@@ -460,7 +460,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-solaris11:
@@ -510,7 +510,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-solaris11-omnios:
@@ -558,7 +558,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-cygwin:
@@ -622,7 +622,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-mingw:
@@ -689,7 +689,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-msvc:
@@ -791,7 +791,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   check-msys2:
@@ -870,7 +870,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   # This is not a platform-specific test, but very useful for finding bugs.
@@ -913,7 +913,7 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
   # This is not a platform-specific test, but very useful for finding ISO C23 compliance bugs.
@@ -961,6 +961,6 @@ jobs:
             ${{ env.package }}-*/build/config.log
             ${{ env.package }}-*/build/config.status
             ${{ env.package }}-*/build/log[12345]
-            ${{ env.package }}-*/build/tests/*.erg
+            ${{ env.package }}-*/build/*/*.erg
           retention-days: 28
           overwrite: true
