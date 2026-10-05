@@ -157,7 +157,8 @@ jobs:
             cd /work
             ls -l
             export CPPFLAGS="-Wall"
-            ./build-on.sh '${{ env.package }}' '' 'make' '/usr/local' '${{ env.libsigsegv }} ${{ env.libffcall }}'
+            wget -O make-4.2.1.tar.gz https://${{ env.ftp_gnu_org }}/gnu/make/make-4.2.1.tar.gz
+            ./build-on.sh '${{ env.package }}' '' 'make' '/usr/local' 'make-4.2.1 ${{ env.libsigsegv }} ${{ env.libffcall }}'
       # Doc: https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
       #      https://github.com/actions/upload-artifact?tab=readme-ov-file#usage
       - if: ${{ always() }}
