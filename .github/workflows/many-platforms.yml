@@ -857,7 +857,8 @@ jobs:
           set -x
           export CPPFLAGS="-Wall"
           export CC=${{ matrix.compiler }}
-          ./build-on.sh '${{ env.package }}' '--host=${{ case(matrix.cpu == 'arm64', 'aarch64', 'x86_64') }}-w64-mingw32' 'make' '${{ case(matrix.cpu == 'arm64', '/clangarm64', matrix.compiler == 'clang', '/clang64', matrix.crt == 'ucrt', '/ucrt64', '/mingw64') }}' '${{ env.libffcall }}'
+          : "TODO: port libffcall to Windows/arm64"
+          ./build-on.sh '${{ env.package }}' '--host=${{ case(matrix.cpu == 'arm64', 'aarch64', 'x86_64') }}-w64-mingw32' 'make' '${{ case(matrix.cpu == 'arm64', '/clangarm64', matrix.compiler == 'clang', '/clang64', matrix.crt == 'ucrt', '/ucrt64', '/mingw64') }}' '${{ case(matrix.cpu == 'arm64', '', env.libffcall) }}'
       # Doc: https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
       #      https://github.com/actions/upload-artifact?tab=readme-ov-file#usage
       - if: ${{ always() }}
