@@ -943,7 +943,7 @@ jobs:
             pwd
             : "Install Debian packages."
             : "List of packages: https://packages.debian.org/"
-            : "apt update; apt -y install ..."
+            apt update; apt -y install locales && localedef -i en_US -f UTF-8 en_US.UTF-8
             cd /work
             ls -l
             export CPPFLAGS="-Wall"
