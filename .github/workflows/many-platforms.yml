@@ -202,7 +202,7 @@ jobs:
             : "                  https://repo.almalinux.org/almalinux/9/CRB/x86_64/os/Packages/"
             : "                  https://repo.almalinux.org/almalinux/9/devel/x86_64/os/Packages/"
             : "Explanation: https://wiki.almalinux.org/repos/AlmaLinux.html"
-            yum -y install bzip2 make gcc diffutils
+            yum -y install bzip2 make gcc diffutils glibc-locale-source && localedef -i en_US -f UTF-8 en_US.UTF-8
             cd /work
             ls -l
             export CPPFLAGS="-Wall"
