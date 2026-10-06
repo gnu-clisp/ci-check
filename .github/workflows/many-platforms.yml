@@ -63,7 +63,7 @@ jobs:
       # List of packages: https://packages.ubuntu.com/
       # - run: sudo apt update; sudo apt install ...
       - run: |
-          ./build-tarball.sh '${{ env.package }}'
+          ./build-tarball.sh '${{ env.package }}' '${{ env.ftp_gnu_org }}'
       # Doc: https://github.com/actions/upload-artifact?tab=readme-ov-file#usage
       - if: ${{ failure() }}
         uses: actions/upload-artifact@v4

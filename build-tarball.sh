@@ -20,6 +20,7 @@
 # Its output is a tarball: $package-$version.tar.bz2
 
 package="$1"
+ftp_gnu_org="$2"
 
 set -e
 
@@ -38,5 +39,5 @@ cd ..
 mv archives/*/*.tar.bz2 .
 
 # Fetch dependency sources (uses package 'wget').
-wget https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.15.tar.gz
-wget https://ftp.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz
+wget https://${ftp_gnu_org}/gnu/libsigsegv/libsigsegv-2.15.tar.gz
+wget https://${ftp_gnu_org}/gnu/libffcall/libffcall-2.5.tar.gz
