@@ -29,7 +29,7 @@ set -e
 git clone --depth 1 https://gitlab.com/gnu-clisp/"$package".git
 
 # Apply patches.
-(cd "$package" && patch -p1 < ../patches/socket.diff)
+#(cd "$package" && patch -p1 < ../patches/...)
 
 cd "$package"
 date=`date --utc --iso-8601 | sed -e 's/-//g'`; sed -i -e "/VERSION_NUMBER=/s/\\([0-9][0-9.]*\\).*/\\1-${date}/" version.sh
