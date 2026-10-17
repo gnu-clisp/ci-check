@@ -764,6 +764,9 @@ jobs:
           WindowsSdkLibDir='C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\'
           INCLUDE="${WindowsSdkIncludeDir}um;${WindowsSdkIncludeDir}shared;$INCLUDE"
           LIB="${WindowsSdkLibDir}${arch};$LIB"
+          : "Windows tools."
+          WindowsSdkBinDir='C:\Program Files (x86)\Windows Kits\8.1\bin\'
+          PATH=`cygpath -u "${WindowsSdkBinDir}${arch}"`:"$PATH"
           : "Visual C++ tools, headers and libraries."
           VSINSTALLDIR='C:\Program Files (x86)\Microsoft Visual Studio 14.0'
           VCINSTALLDIR="${VSINSTALLDIR}"'\VC'
