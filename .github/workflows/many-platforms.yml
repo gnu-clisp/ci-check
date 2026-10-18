@@ -903,7 +903,7 @@ jobs:
       - run: |
           pwd
           export CPPFLAGS="-Wall -DSANITIZE_UNDEFINED"
-          export CC="clang -fsanitize=undefined,signed-integer-overflow,shift,integer-divide-by-zero -fno-sanitize-recover=undefined"
+          export CC="clang -fsanitize=undefined,signed-integer-overflow,shift,integer-divide-by-zero,bounds -fno-sanitize-recover=undefined"
           export CFLAGS="-O0 -fno-omit-frame-pointer -ggdb"
           ./build-on.sh '${{ env.package }}' '' 'make' "$HOME" '${{ env.libsigsegv }}'
       # Doc: https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
