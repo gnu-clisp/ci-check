@@ -41,7 +41,7 @@ on:
 # Variables.
 env:
   package: clisp
-  libsigsegv: libsigsegv-2.15
+  libsigsegv: libsigsegv-2.16
   libffcall: libffcall-2.5
   # URL prefix suitable for downloading individual files through 'wget'
   #gnulib_url_prefix: https://gitweb.git.savannah.gnu.org/gitweb/?p=gnulib.git;a=blob_plain;hb=HEAD;f=
@@ -678,7 +678,7 @@ jobs:
           PATH=/usr/${{ matrix.bitness == 32 && 'i686' || 'x86_64' }}-w64-mingw32/sys-root/mingw/bin:$PATH
           export CPPFLAGS="-Wall"
           export CC=${{ matrix.bitness == 32 && 'i686' || 'x86_64' }}-w64-mingw32-gcc
-          ./build-on.sh '${{ env.package }}' '--host=${{ matrix.bitness == 32 && 'i686' || 'x86_64' }}-w64-mingw32' 'make' '/usr/${{ matrix.bitness == 32 && 'i686' || 'x86_64' }}-w64-mingw32/sys-root/mingw' '${{ matrix.bitness == 32 && env.libsigsegv || '' }} ${{ env.libffcall }}'
+          ./build-on.sh '${{ env.package }}' '--host=${{ matrix.bitness == 32 && 'i686' || 'x86_64' }}-w64-mingw32' 'make' '/usr/${{ matrix.bitness == 32 && 'i686' || 'x86_64' }}-w64-mingw32/sys-root/mingw' '${{ env.libsigsegv }} ${{ env.libffcall }}'
       # Doc: https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
       #      https://github.com/actions/upload-artifact?tab=readme-ov-file#usage
       - if: ${{ always() }}
@@ -783,7 +783,7 @@ jobs:
           export STRIP=":"
           export AR="`pwd`/ar-lib lib"
           export RANLIB=":"
-          ./build-on.sh '${{ env.package }}' '--host=${{ matrix.bitness == 32 && 'i686' || 'x86_64' }}-w64-mingw32' 'make' '/usr/local/msvc${{ matrix.bitness }}' '${{ matrix.bitness == 32 && env.libsigsegv || '' }} ${{ env.libffcall }}'
+          ./build-on.sh '${{ env.package }}' '--host=${{ matrix.bitness == 32 && 'i686' || 'x86_64' }}-w64-mingw32' 'make' '/usr/local/msvc${{ matrix.bitness }}' '${{ env.libsigsegv }} ${{ env.libffcall }}'
       # Doc: https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
       #      https://github.com/actions/upload-artifact?tab=readme-ov-file#usage
       - if: ${{ always() }}
@@ -863,7 +863,7 @@ jobs:
           export CPPFLAGS="-Wall"
           export CC=${{ matrix.compiler }}
           : "TODO: port libffcall to Windows/arm64"
-          ./build-on.sh '${{ env.package }}' '--host=${{ case(matrix.cpu == 'arm64', 'aarch64', 'x86_64') }}-w64-mingw32' 'make' '${{ case(matrix.cpu == 'arm64', '/clangarm64', matrix.compiler == 'clang', '/clang64', matrix.crt == 'ucrt', '/ucrt64', '/mingw64') }}' '${{ case(matrix.cpu == 'arm64', '', env.libffcall) }}'
+          ./build-on.sh '${{ env.package }}' '--host=${{ case(matrix.cpu == 'arm64', 'aarch64', 'x86_64') }}-w64-mingw32' 'make' '${{ case(matrix.cpu == 'arm64', '/clangarm64', matrix.compiler == 'clang', '/clang64', matrix.crt == 'ucrt', '/ucrt64', '/mingw64') }}' '${{ env.libsigsegv }} ${{ case(matrix.cpu == 'arm64', '', env.libffcall) }}'
       # Doc: https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
       #      https://github.com/actions/upload-artifact?tab=readme-ov-file#usage
       - if: ${{ always() }}
