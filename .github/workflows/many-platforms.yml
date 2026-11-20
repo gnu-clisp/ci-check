@@ -494,6 +494,7 @@ jobs:
             set -x
             uname -a
             id
+            getent hosts localhost
             env | LC_ALL=C sort
             pwd
             ls -l
@@ -543,6 +544,7 @@ jobs:
             set -x
             uname -a
             id
+            getent hosts localhost
             env | LC_ALL=C sort
             pwd
             ls -l
