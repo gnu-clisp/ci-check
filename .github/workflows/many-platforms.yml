@@ -149,6 +149,7 @@ jobs:
           run: |
             uname -a
             id
+            ls -l /proc/kcore
             env | LC_ALL=C sort
             pwd
             : "The CentOS packages repository has moved on 2024-07-01."
@@ -196,6 +197,7 @@ jobs:
           run: |
             uname -a
             id
+            ls -l /proc/kcore
             env | LC_ALL=C sort
             pwd
             : "Install AlmaLinux packages"
@@ -244,6 +246,7 @@ jobs:
           run: |
             uname -a
             id
+            ls -l /proc/kcore
             env | LC_ALL=C sort
             pwd
             : "Install Alpine Linux packages"
